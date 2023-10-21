@@ -1,0 +1,71 @@
+@startuml IPhone
+
+package phone {
+  class IPhone {
+    + main(args: String[]): void
+  }
+}
+
+package funcionalidades {
+  interface Telefone {
+    + ligar(): void
+    + atender(): void
+    + iniciarCorreioVoz(): void
+  }
+
+  interface Browser {
+    + exibirPagina(): void
+    + adicionarNovaAba(): void
+    + atualizarPagina(): void
+  }
+
+  interface Musica {
+    + tocar(): void
+    + pausar(): void
+    + selecionarMusica(): void
+  }
+
+  interface Foto {
+    + tirar(): void
+    + apagar(): void
+    + exibir(): void
+  }
+
+  class TelefoneImpl {
+    + ligar(): void
+    + atender(): void
+    + iniciarCorreioVoz(): void
+  }
+
+  class BrowserImpl {
+    + exibirPagina(): void
+    + adicionarNovaAba(): void
+    + atualizarPagina(): void
+  }
+
+  class MusicaImpl {
+    + tocar(): void
+    + pausar(): void
+    + selecionarMusica(): void
+  }
+
+  class FotoImpl {
+    + tirar(): void
+    + apagar(): void
+    + exibir(): void
+  }
+}
+
+IPhone --|> funcionalidades.Telefone
+IPhone --|> funcionalidades.Browser
+IPhone --|> funcionalidades.Musica
+IPhone --|> funcionalidades.Foto
+
+
+Telefone --|> TelefoneImpl
+Browser--|> BrowserImpl
+Musica--|> MusicaImpl
+Foto--|> FotoImpl
+
+
+@enduml
